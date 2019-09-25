@@ -1,0 +1,11 @@
+@import "../../styles";
+:host{
+
+  .order-item-container app-order-item:first-child{
+    border-top: 1px solid $light-gray;
+  }
+  .order-item-container app-order-item,.border-gray {
+
+    border-bottom: 1px solid $light-gray;
+  }
+}

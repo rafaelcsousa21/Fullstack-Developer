@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-white">
+
+  <div class="container">
+    <a class="navbar-brand pr-5" href="#">
+      <img src="../../assets/icons/logotipo-maximatech.png" class="d-inline-block align-top" height="40">
+    </a>
+
+    <div class="navbar-collapse"  id="navbarContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link pr-5" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown2" role="button">
+            Cadastro
+          </a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" >Cliente</a>
+            <a class="dropdown-item" routerLink="/product"  routerLinkActive="active">Produto</a>
+          </div>
+        </li>
+
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown2" role="button">
+            Pedido
+          </a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" routerLink="/order"  routerLinkActive="active">Novo Pedido</a>
+            <a class="dropdown-item" routerLink="/orders"  routerLinkActive="active">Consulta Pedido</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container container-router mt-5">
+  <router-outlet></router-outlet>
+</div>
+

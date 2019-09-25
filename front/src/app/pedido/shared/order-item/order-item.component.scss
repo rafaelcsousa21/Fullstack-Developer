@@ -1,0 +1,36 @@
+:host{
+
+  display: block;
+  img{
+    height: 6rem;
+  }
+
+  .qty-item{
+    display: inline-block;
+    color: #999;
+    border: 1px solid;
+    border-color: #999;
+    padding: .3rem 1rem;
+  }
+  .remove-button{
+    width: 1.5rem;
+    height:1.5rem;
+    text-align: center;
+    vertical-align: bottom;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #999c;
+    color: #333;
+  }
+  .remove-button-container {
+    display: flex;
+  }
+  .input-qty{
+    min-width: 30px;
+    max-width: 50px;
+  }
+  .unit-price-label {
+    white-space: pre-wrap;
+  }
+}

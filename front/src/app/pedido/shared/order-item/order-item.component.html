@@ -1,0 +1,48 @@
+<div class="row">
+
+  <div class="col-lg-8 col-md-7 text-left">
+
+    <div class="row align-content-center h-100">
+      <div class="pl-0 col-auto text-left ">
+        <img src="/assets/icons/foto-coca-cola.png"  class="rounded img-fluid pt-3 pb-3" alt="">
+      </div>
+      <div class="col-auto row align-content-center">
+        <div class="w-100">
+          <p class="m-0 light-gray" [innerHtml]="orderItem.product.codigo"></p>
+        </div>
+        <div class="w100">
+          <h6 class="font-weight-bold m-0" [innerHtml]="orderItem.product.name"></h6>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="col-lg-4 col-md-5  text-right">
+    <div class="row h-100 justify-content-center">
+      <div class="col-7 h-100 row align-content-center align-items-center justify-content-end flex-column">
+        <div class="row  w-100 justify-content-end justify-content-lg-end justify-content-sm-center align-items-end text-center">
+          <input type="text" [(ngModel)]="orderItem.qty" (keypress)="numberOnly($event)" (input)="onChangeQty($event)"  class="input-qty form-control pl-0 pr-0 w-25 text-center light-gray">
+          <h6 class="m-0 ml-2 m-sm-0 unit-price-label" [innerHtml]="' x ' + (orderItem.product.unitPrice | currency:'BRL')" ></h6>
+        </div>
+        <div class="row  w-100 align-content-end justify-content-end justify-content-lg-end justify-content-sm-center">
+          <h6 class="font-weight-bold"
+              [innerHtml]="(orderItem.product.unitPrice * orderItem.qty | currency:'BRL')"></h6>
+        </div>
+      </div>
+      <div class="col-auto col-5 col-md-4">
+
+        <div class=" w-100 h-100 align-content-center justify-content-end align-items-center remove-button-container" >
+          <div class="remove-button rounded-circle " (click)="onClickRemove()" >
+            X
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

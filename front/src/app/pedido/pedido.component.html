@@ -1,0 +1,79 @@
+
+<form [formGroup]="orderForm" #formDir="ngForm" (ngSubmit)="submit()">
+  <app-card-container>
+
+    <app-card-title>
+      <img *ngIf="model == null" src="/assets/icons/icone-cliente.png" height="20">
+      Cliente
+    </app-card-title>
+    <app-input-typeahead required placeholder="Informe um cliente *" [search]="searchCustomer" formControlName="customer" [formatter]="formatter"></app-input-typeahead>
+
+  </app-card-container>
+
+  <app-card-container>
+
+    <app-card-title>
+      <img *ngIf="model == null" src="/assets/icons/icone-carrinho.png" height="20">
+      Carrinho
+    </app-card-title>
+    <app-input-typeahead placeholder="Pesquise um produto" (onSelect)="onSelectProduct($event)" [search]="searchProduct" [model]="product" [formatter]="formatter"></app-input-typeahead>
+
+
+    <div class="mt-3 text-center container">
+      <div *ngIf="orderItens.controls.length <= 0 ">
+        <div class="col-12 ">
+          <img src="/assets/icons/imagem-carrinho-empty-state.png" width="15%" alt="">
+        </div>
+        <div class="col-12 mt-2">
+          <h3 class="font-weight-bold dark-color">Carrinho Vazio</h3>
+        </div>
+        <div class="col-12">
+          <p class="dark-color">Nenhum produto inserido</p>
+        </div>
+      </div>
+      <div *ngIf="orderItens.controls.length > 0 " formArrayName="items" class="order-item-container">
+
+          <app-order-item [formControlName]="i"  *ngFor="let orderItem of orderItens.controls; let i=index"  (onChangeValue)="processFreightTax()" (onRemove)="onRemoveItem(i)"></app-order-item>
+      </div>
+    </div>
+  </app-card-container>
+
+  <app-card-container>
+
+    <app-card-title>
+      <img *ngIf="model == null" src="/assets/icons/icone-total.png" height="20">
+      Total
+
+
+    </app-card-title>
+    <div class="row container">
+
+      <div class="col-6  mt-3">
+
+        <div class="row justify-content-between mb-1">
+          <h6 class="light-gray">Itens </h6>
+          <h6 [innerHtml]="orderTotal | currency:'BRL'"></h6>
+        </div>
+        <div class="row justify-content-between mb-1 border-gray">
+          <h6 class="light-gray">Frete </h6>
+          <h6 [innerHtml]="freight.totalFreight | currency:'BRL'"></h6>
+        </div>
+
+        <div class="row justify-content-between mt-2">
+          <h6 class="light-gray">Total </h6>
+          <h6 [innerHtml]="(orderTotal + freight.totalFreight ) | currency:'BRL'"></h6>
+        </div>
+      </div>
+      <div class="col-6 pl-5">
+        <div class="row mt-3">
+          <button type="submit" class="btn btn-success btn-block" >Finalizar pedido</button>
+        </div>
+        <div class="row mt-3">
+          <button type="button" class="btn btn-outline-secondary btn-block" (click)="onCleanOrder()">Limpar carrinho</button>
+        </div>
+      </div>
+
+    </div>
+  </app-card-container>
+</form>
+
