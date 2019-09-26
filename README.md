@@ -14,10 +14,13 @@ OR:
 
 `docker-compose up`
 
-## 3. Executar a aplicação cliente∑
+## 3. Executar a aplicação cliente
 `cd -`
+
 `cd front`
+
 `npm install`
+
 `npm start`
 
 ## 3. Teste
